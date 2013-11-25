@@ -1,0 +1,94 @@
+---
+- hosts: vagrant
+  tasks:
+    - name: ensure mysql-client is at the latest version
+      apt: pkg=mysql-client state=latest update-cache=yes
+      sudo: yes
+    - name: ensure mysql-server is at the latest version
+      apt: pkg=mysql-server state=latest
+      sudo: yes
+    - name: ensure maven is at the latest version
+      apt: pkg=maven state=latest
+      sudo: yes
+    - name: ensure java is at the latest version
+      apt: pkg=openjdk-7-jdk state=latest 
+      sudo: yes
+    - name: ensure git is at the latest version
+      apt: pkg=git state=latest
+      sudo: yes
+    - name: ensure curl is at the latest version
+      apt: pkg=curl state=latest
+      sudo: yes
+    - name: ensure unzip is at the latest version
+      apt: pkg=unzip state=latest
+      sudo: yes
+
+    - name: create setup directory
+      file: path=/home/vagrant/Setup 
+            owner=vagrant
+            state=directory
+    - name: create projects directory
+      file: path=/home/vagrant/Projects 
+            owner=vagrant
+            state=directory
+
+    - name: pull down OpenMRS
+      git: repo=https://github.com/openmrs/openmrs-core.git 
+           dest=/home/vagrant/Projects/OpenMRS
+    - name: compile OpenMRS
+      command: mvn clean install  
+               chdir=/home/vagrant/Projects/OpenMRS 
+    - name: change mysql root password to root_password
+      command: mysqladmin -u root password root_password
+
+    - name: ensure zsh is at the latest version
+      apt: pkg=zsh state=latest 
+      sudo: yes
+    - name: clone oh-my-zsh
+      git: repo=git://github.com/robbyrussell/oh-my-zsh.git
+           dest=/home/vagrant/.oh-my-zsh
+    - name: copy local zshrc into home
+      copy: src=resources/.zshrc 
+            dest=/home/vagrant/.zshrc
+    - name: switch login shell to zsh
+      user: name=vagrant shell=/usr/bin/zsh
+      sudo: yes
+    - name: ensure autojump is at the latest version
+      apt: pkg=autojump state=latest
+      sudo: yes
+
+    - name: ensure vim is at the latest version
+      apt: pkg=vim state=latest
+      sudo: yes
+    - name: create pathogen autoload directory for vim
+      file: path=/home/vagrant/.vim/autoload
+            owner=vagrant
+            state=directory
+    - name: create pathogen bundle directory for vim
+      file: path=/home/vagrant/.vim/bundle
+            owner=vagrant
+            state=directory
+    - name: copy local vimrc into home
+      copy: src=resources/.vimrc 
+            dest=/home/vagrant/.vimrc
+    - name: get pathogen for vim
+      get_url: url="https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+               dest=/home/vagrant/.vim/autoload/pathogen.vim
+    - name: get ctrlp for vim
+      git: repo=git://github.com/kien/ctrlp.vim.git
+           dest=/home/vagrant/.vim/bundle/ctrlp.vim
+    - name: get nerdtree for vim
+      git: repo=git://github.com/scrooloose/nerdtree
+           dest=/home/vagrant/.vim/bundle/nerdtree
+    - name: get desert theme for vim
+      git: repo=git://github.com/fugalh/desert.vim
+           dest=/home/vagrant/.vim/bundle/desert.vim
+    - name: get supertab for vim
+      git: repo=git://github.com/ervandew/supertab
+           dest=/home/vagrant/.vim/bundle/supertab
+    - name: get fugitive for vim
+      git: repo=git://github.com/tpope/vim-fugitive
+           dest=/home/vagrant/.vim/bundle/vim-fugitive
+    - name: get surround for vim
+      git: repo=git://github.com/tpope/vim-surround
+           dest=/home/vagrant/.vim/bundle/vim-surround
