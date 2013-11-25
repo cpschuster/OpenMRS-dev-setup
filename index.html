@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Openmrs-dev-setup : Quickstart development setup for OpenMRS with vagrant-virtualbox-ansible" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Openmrs-dev-setup</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/cpschuster/OpenMRS-dev-setup">View on GitHub</a>
+
+          <h1 id="project_title">Openmrs-dev-setup</h1>
+          <h2 id="project_tagline">Quickstart development setup for OpenMRS with vagrant-virtualbox-ansible</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/cpschuster/OpenMRS-dev-setup/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/cpschuster/OpenMRS-dev-setup/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="openmrs-dev-setup" class="anchor" href="#openmrs-dev-setup"><span class="octicon octicon-link"></span></a>OpenMRS-dev-setup</h1>
+
+<p>Quickstart development setup for OpenMRS via virtualization so that the host computer doesn't get mucked up.</p>
+
+<p>Requires:</p>
+
+<ul>
+<li>VirtualBox, <a href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a>
+</li>
+<li>Vagrant, <a href="http://downloads.vagrantup.com/">http://downloads.vagrantup.com/</a>
+</li>
+<li>Ansible, <a href="http://www.ansibleworks.com/docs/intro_installation.html">http://www.ansibleworks.com/docs/intro_installation.html</a>
+</li>
+</ul><p>Note: OSX users will want to use the dmg's for VirtualBox and Vagrant and the pip installation method for ansible</p>
+
+<hr><p>How to use:</p>
+
+<ul>
+<li>[install dependencies]</li>
+<li>git clone <a href="https://github.com/cpschuster/OpenMRS-dev-setup">https://github.com/cpschuster/OpenMRS-dev-setup</a>
+</li>
+<li>cd OpenMRS-dev-setup</li>
+<li>vagrant up (takes ~30 minutes)</li>
+<li>vagrant ssh</li>
+<li>[in guest terminal] cd Projects/OpenMRS/webapp/</li>
+<li>[in guest terminal] mvn jetty:run </li>
+<li>[in host browser] <a href="http://192.168.127.200:8080/openmrs/">http://192.168.127.200:8080/openmrs/</a>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Openmrs-dev-setup maintained by <a href="https://github.com/cpschuster">cpschuster</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
