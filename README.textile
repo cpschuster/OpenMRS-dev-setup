@@ -23,4 +23,4 @@ vagrant ssh
 [in guest terminal] mvn jetty:run 
 [in host browser] http://localhost:8080/openmrs/
 [in host browser] After OpenMRS installation, log in with admin/Admin123
-[in host machine] Create Eclipse workspace over OpenMRS-dev-setup/projects
+[in host machine] Create Eclipse workspace over OpenMRS-dev-setup/projects. Take note that Java versions etc. will need to match what's on the VM.
