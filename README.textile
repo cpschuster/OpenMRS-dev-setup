@@ -15,8 +15,12 @@ h2. Happy Path Usage Instructions
 [install dependencies]
 git clone https://github.com/cpschuster/OpenMRS-dev-setup
 cd OpenMRS-dev-setup
+mkdir projects
 vagrant up (takes ~30 minutes)
 vagrant ssh
 [in guest terminal] cd Projects/OpenMRS/webapp/
+[in guest terminal] mvn clean install (upon any local dev changes -- not needed the first time)
 [in guest terminal] mvn jetty:run 
-[in host browser] http://192.168.127.200:8080/openmrs/
+[in host browser] http://localhost:8080/openmrs/
+[in host browser] After OpenMRS installation, log in with admin/Admin123
+[in host machine] Create Eclipse workspace over OpenMRS-dev-setup/projects
