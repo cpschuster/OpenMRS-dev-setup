@@ -1,3 +1,12 @@
+$script = <<EOS
+  yes | apt-get install python-software-properties
+  yes | add-apt-repository ppa:rquillo/ansible
+  yes | apt-get update
+  yes | apt-get install ansible
+  ansible-playbook /home/vagrant/Shared/playbook.yml --connection=local -i /home/vagrant/Shared/ansible_hosts -v
+EOS
+
+
 Vagrant.configure("2") do |config|
     config.vm.box = "precise64"
     config.vm.box_url = "http://files.vagrantup.com/precise64.box"
@@ -10,13 +19,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--memory", 2048]
     end
-    config.vm.provision :ansible do |ansible|
-        ansible.playbook = "ansible/playbook.yml"
-        ansible.inventory_path = "ansible/ansible_hosts"
-# Use inventory_file if using Vagrant 1.2.x
-#        ansible.inventory_file = "ansible/ansible_hosts"
-        ansible.verbose = true
-    end
+    config.vm.provision "shell", inline: $script
     config.ssh.forward_agent = true
     config.ssh.forward_x11 = true
 end
