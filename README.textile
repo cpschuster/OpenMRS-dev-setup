@@ -9,18 +9,21 @@ Vagrant, http://downloads.vagrantup.com/
 Ansible, http://www.ansibleworks.com/docs/intro_installation.html
 
 Note: OSX users will want to use the dmg's for VirtualBox and Vagrant and the pip installation method for ansible
+Note: Windows users will not need to download ansible.
 
 h2. Happy Path Usage Instructions
 
 [install dependencies]
 git clone https://github.com/cpschuster/OpenMRS-dev-setup
 cd OpenMRS-dev-setup
+[If Windows user] git checkout windows
 mkdir projects
 vagrant up (takes ~30 minutes)
 vagrant ssh
 [in guest terminal] cd Projects/OpenMRS/webapp/
 [in guest terminal] mvn clean install (upon any local dev changes -- not needed the first time)
-[in guest terminal] mvn jetty:run 
+[in guest terminal] mvn jetty:run
 [in host browser] http://localhost:8080/openmrs/
+[in host browser] During OpenMRS installation, mysql root password is root_password
 [in host browser] After OpenMRS installation, log in with admin/Admin123
 [in host machine] Create Eclipse workspace over OpenMRS-dev-setup/projects. Take note that Java versions etc. will need to match what's on the VM.
