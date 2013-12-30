@@ -27,3 +27,8 @@ vagrant ssh
 [in host browser] During OpenMRS installation, mysql root password is root_password
 [in host browser] After OpenMRS installation, log in with admin/Admin123
 [in host machine] Create Eclipse workspace over OpenMRS-dev-setup/projects. Take note that Java versions etc. will need to match what's on the VM.
+
+h2. Setting up git + workflow tutorial
+
+Do this after you've set up your environment. 
+See the wiki page: https://github.com/hypotext/OpenMRS-dev-setup/wiki/Setting-up-git---workflow-tutorial
