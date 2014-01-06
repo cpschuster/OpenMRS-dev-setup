@@ -31,4 +31,4 @@ vagrant ssh
 h2. Setting up git + workflow tutorial
 
 Do this after you've set up your environment. 
-See the wiki page: https://github.com/hypotext/OpenMRS-dev-setup/wiki/Setting-up-git---workflow-tutorial
+Go through the steps on the wiki page: https://github.com/hypotext/OpenMRS-dev-setup/wiki/Setting-up-git,-plus-workflow-tutorial
