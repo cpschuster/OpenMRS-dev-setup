@@ -11,9 +11,11 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision :chef_solo do |chef|
         chef.run_list = [
-            "recipe[apt]",
-            "recipe[git]",
-            "recipe[java]"
+            "recipe[apt::default]",
+            "recipe[git::default]",
+            "recipe[java::default]",
+            "recipe[mysql::client]",
+            "recipe[maven::default]"
         ]
     end
     config.ssh.forward_agent = true

@@ -1,5 +1,9 @@
-# Cookbook Name:: java
-# Recipe:: purge_packages
+#
+# Cookbook Name:: ark
+# Recipe:: default
+#
+# Author:: Bryan W. Berry <bryan.berry@gmail.com>
+# Copyright 2012, Bryan W. Berry
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,9 +16,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-%w[sun-java6-jdk sun-java6-bin sun-java6-jre].each do |pkg|
-  package pkg do
-    action :purge
-  end
-end
+package 'unzip'
+package 'libtool'
+package 'rsync'
+package 'autoconf'
+package 'make'
+package 'gcc'
+package 'autogen' unless platform_family?('rhel', 'fedora')
+package 'gtar' if platform?('freebsd')

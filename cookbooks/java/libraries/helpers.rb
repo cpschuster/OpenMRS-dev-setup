@@ -34,25 +34,6 @@ module Opscode
       File.join(java_home_parent(@java_home), openjdk_path, 'bin/java')
     end
 
-    def alternatives_priority
-      if @jdk_version == '6'
-        # 'accepted' default for java 6
-        1061
-      elsif @jdk_version == '7'
-        # i just made this number up
-        1100
-      elsif @jdk_version.to_i > 7
-        # just a guard against the incoming java 8
-        # so this cookbook will actually work for.. new versions of java
-        1110
-      else
-        # it's not 6, it's not 7, it's not newer than
-        # 7, but we probably want to install it, so
-        # override 6's priority. arbitrary number.
-        1062
-      end
-    end
-
     def java_home_parent(java_home)
       Pathname.new(java_home).parent.to_s
     end
@@ -110,7 +91,7 @@ end
 class Chef
   class Recipe
     def valid_ibm_jdk_uri?(url)
-      url =~ ::URI::ABS_URI && %w[file http https].include?(::URI.parse(url).scheme)
+      url =~ ::URI::ABS_URI && %w[http https].include?(::URI.parse(url).scheme)
     end
 
     def platform_requires_license_acceptance?

@@ -1,6 +1,8 @@
 #
-# Cookbook Name:: java
-# Provider:: alternatives
+# Cookbook Name:: mysql
+# Attributes:: client
+#
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,17 +15,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-actions :set, :unset
-
-attribute :java_location, :kind_of => String, :default => nil
-attribute :bin_cmds, :kind_of => Array, :default => nil
-attribute :default, :equal_to => [true, false], :default => true
-attribute :priority, :kind_of => Integer, :default => 1061
-
-# we have to set default for the supports attribute
-# in initializer since it is a 'reserved' attribute name
-def initialize(*args)
-  super
-  @action = :set
-end
+default['mysql']['percona']['apt_key_id'] = 'CD2EFD2A'
+default['mysql']['percona']['apt_uri'] = 'http://repo.percona.com/apt'
+default['mysql']['percona']['apt_keyserver'] = 'keys.gnupg.net'
