@@ -32,3 +32,5 @@ h2. Setting up git + workflow tutorial
 
 Do this after you've set up your environment. 
 Go through the steps on the wiki page: https://github.com/hypotext/OpenMRS-dev-setup/wiki/Setting-up-git,-plus-workflow-tutorial
+
+Then go through these steps to get the webapp up and running: https://github.com/hypotext/OpenMRS-dev-setup/wiki/Running-the-OpenMRS-webapp-and-viewing-changes-in-code
