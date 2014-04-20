@@ -1,0 +1,38 @@
+h1. Express OpenMRS-dev-setup
+
+Quickstart development setup for OpenMRS via virtualization so that the host computer doesn't get mucked up. Express setup version uses a working snapshot of the source code as of 2014-04-19.
+
+h2. Requires:
+
+VirtualBox, https://www.virtualbox.org/wiki/Downloads
+Vagrant, http://downloads.vagrantup.com/
+
+Note: OSX users will want to use the dmg's for VirtualBox and Vagrant and the pip installation method for ansible
+Note: Windows users will not need to download ansible.
+
+h2. Interacting with the application: Happy Path Usage Instructions
+
+[install dependencies]
+git clone -b express-setup https://github.com/cpschuster/OpenMRS-dev-setup
+cd OpenMRS-dev-setup
+[If Windows user] git checkout windows
+mkdir projects
+vagrant up (should only take a few minutes)
+vagrant ssh
+[in guest terminal] cd Projects/OpenMRS/webapp/
+[in guest terminal] mvn jetty:run
+[in host browser] http://localhost:8080/openmrs/
+[in host browser] OpenMRS web application installation should already be complete. Log in with admin/Admin123
+
+h2. Starting development: Happy Path Usage Instructions
+
+cd OpenMRS-dev-setup
+[If Windows user] git checkout windows
+vagrant ssh
+[in guest terminal] cd Projects/OpenMRS/
+[in guest terminal] git pull origin master 
+[in guest terminal] mvn clean install 
+[in guest terminal] mvn jetty:run
+[in host browser] http://localhost:8080/openmrs/
+[in host machine] Create Eclipse workspace over OpenMRS-dev-setup/projects. Take note that Java versions etc. will need to match what's on the VM.
+Note: mysql root password is set to root_password
