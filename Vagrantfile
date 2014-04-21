@@ -8,7 +8,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "OpenMRS-dev-setup-clone"
 
   # Contains working snapshot of code as of 2014-04-19
-  config.vm.box_url = "file://#{File.dirname(__FILE__)}/OpenMRS-dev-setup-base.box"
+  #If you pre-downloaded file to current working directory
+  #config.vm.box_url = "file://#{File.dirname(__FILE__)}/OpenMRS-dev-setup-base.box"
+  config.vm.box_url = "https://googledrive.com/host/0Bw9lrNlwIuLzZDEzZ0JUOUhuQmM/OpenMRS-dev-setup-base.box"
   config.vm.hostname = "OpenMRSDev"
   config.vm.synced_folder "shared", "/home/vagrant/Shared"
   config.vm.synced_folder "projects", "/home/vagrant/Projects"
