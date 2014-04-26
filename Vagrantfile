@@ -6,6 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "OpenMRS-dev-setup-clone"
+  config.vm.network :private_network, ip: "192.168.127.200" 
+  #config.vm.network :private_network, type: "dhcp"
 
   # Contains working snapshot of code as of 2014-04-19
   #If you pre-downloaded file to current working directory
@@ -15,7 +17,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "shared", "/home/vagrant/Shared"
   config.vm.synced_folder "projects", "/home/vagrant/Projects"
   config.vm.network "public_network"
-  config.vm.network :private_network, type: "dhcp"
   config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: true
   config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 2048]
