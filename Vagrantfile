@@ -11,11 +11,14 @@ Vagrant.configure("2") do |config|
         vb.customize ["modifyvm", :id, "--memory", 2048]
     end
     config.vm.provision :ansible do |ansible|
+        ansible.limit = "all"
         ansible.playbook = "ansible/playbook.yml"
         ansible.inventory_path = "ansible/ansible_hosts"
-# Use inventory_file if using Vagrant 1.2.x
-#        ansible.inventory_file = "ansible/ansible_hosts"
+        # Use inventory_file if using Vagrant 1.2.x
+        # ansible.inventory_file = "ansible/ansible_hosts"
         ansible.verbose = true
+        # All hosts line required for newest vagrant version 
+        ansible.hosts = "all"
     end
     config.ssh.forward_agent = true
     config.ssh.forward_x11 = true
