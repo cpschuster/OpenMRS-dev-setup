@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
         # Use inventory_file if using Vagrant 1.2.x
         # ansible.inventory_file = "ansible/ansible_hosts"
         ansible.verbose = true
-        # All hosts line required for newest vagrant version 
+        # All hosts line required for newest vagrant version 1.5.x 
         ansible.hosts = "all"
     end
     config.ssh.forward_agent = true
