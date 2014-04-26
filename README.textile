@@ -20,7 +20,7 @@ mkdir projects
 vagrant up (should only take a few minutes)
 vagrant ssh
 [in guest terminal] cd Projects/OpenMRS/webapp/
-[in guest terminal] mvn jetty:run
+[in guest terminal] sudo mvn jetty:run
 [in host browser] http://localhost:8080/openmrs/
 [in host browser] OpenMRS web application installation should already be complete. Log in with admin/Admin123
 
