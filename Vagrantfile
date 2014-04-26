@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
         # ansible.inventory_file = "ansible/ansible_hosts"
         ansible.verbose = true
         # All hosts line required for newest vagrant version 1.5.x 
-        ansible.hosts = "all"
+        ansible.limit = "all"
     end
     config.ssh.forward_agent = true
     config.ssh.forward_x11 = true
