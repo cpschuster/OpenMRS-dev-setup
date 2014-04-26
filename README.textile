@@ -1,6 +1,7 @@
 h1. OpenMRS-dev-setup
 
 Quickstart development setup for OpenMRS via virtualization so that the host computer doesn't get mucked up.
+For express setup based on a snapshotted VM image please use branch express-setup.
 
 h2. Requires:
 
