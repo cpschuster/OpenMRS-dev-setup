@@ -22,7 +22,7 @@ vagrant ssh
 [in guest terminal] cd Projects/OpenMRS/webapp/
 [in guest terminal] mvn jetty:run
 [in host browser] http://localhost:8080/openmrs/
-[in host browser] OpenMRS web application installation should already be complete. Log in with admin/test
+[in host browser] Go through OpenMRS web application installation instructions. MySQL database password is set to root_password by default. Choose 'Simple' installation, and install demo data. After everything has been install, log into the OpenMRS webapp with admin/test.
 
 h2. Starting development: Happy Path Usage Instructions
 
